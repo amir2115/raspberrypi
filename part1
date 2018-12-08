@@ -1,0 +1,28 @@
+//part 1
+
+#include <stdio.h>
+#include <wiringPi.h>
+#include <softPwm.h>
+void main(){
+    wiringPiSetup();
+    pinMode(1,OUTPUT);
+    pinMode(4,OUTPUT);
+    pinMode(5,OUTPUT);
+    pinMode(6,OUTPUT);
+    pinMode(29,OUTPUT);
+    pinMode(28,OUTPUT);
+    while(1){
+        //enb
+        // digitalWrite(1,0);
+        // digitalWrite(28,0);
+        softPwmCreat(1,0,100);
+        softPwmCreat(28,0,100);
+        softPwmWrite(1,100);
+        softPwmWrite(28,30);
+        //in
+        digitalWrite(4,0);
+        digitalWrite(5,1);
+        digitalWrite(6,0);
+        digitalWrite(29,1);
+    }
+}
